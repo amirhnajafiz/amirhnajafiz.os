@@ -1,4 +1,4 @@
-# Ruby-Relation
+# Ruby Connection
 
 Creating a server-client application with Ruby programming language.
 
