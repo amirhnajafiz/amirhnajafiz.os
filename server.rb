@@ -8,9 +8,11 @@ puts "Listening on port 2000 ...."
 
 loop {
     client = server.accept  # Waiting for client to join
+    puts "Client #{client} accepted"
     client.puts(Time.now.ctime)
     client.puts("Closing the connection by server!")
     client.close
+    puts "Client #{client} disconncted !"
 }
 
 puts "Server terminated !"
