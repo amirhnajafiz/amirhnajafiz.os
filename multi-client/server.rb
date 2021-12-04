@@ -2,14 +2,7 @@
 
 # Implementing a server in ruby programming language.
 require 'socket'
-
-def client_handler (client = nil, id)
-    puts "Client AASS#{id} accepted"
-    client.puts(Time.now.ctime)
-    client.puts("Closing the connection by server!")
-    client.close
-    puts "Client AASS#{id} disconncted !"
-end
+require './handler'
 
 port = ARGV[0].to_i
 
@@ -21,7 +14,7 @@ i = 0
 loop {
     Thread.start(server.accept) do |client| # Waiting for client to join
         i += 1
-        client_handler client, i
+        client_handler client, i  # Calling client handler method
     end
 }
 
