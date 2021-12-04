@@ -3,8 +3,8 @@
 # Implementing the user client in ruby programming language
 require 'socket'
 
-host = 'localhost'
-port = 2000 
+host = ARGV[0]       # Domain name
+port = ARGV[1].to_i  # Port number
 
 s = TCPSocket.open(host, port)  # Opening client socket
 puts "Connected to #{host}:#{port}"
