@@ -33,3 +33,18 @@ Ex:
 server = TCPServer.open(8080)
 ```
 
+## How to run ?
+Use the following command for starting the server on a port:
+```shell
+ruby ./server.rb [port]
+```
+
+Response should be like this:
+```shell
+Listening on port 8080 ....
+```
+
+And after that you can run clients by the following command:
+```shell
+ruby ./client.rb [domain] [port]
+```
