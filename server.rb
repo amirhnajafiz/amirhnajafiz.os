@@ -3,8 +3,10 @@
 # Implementing a server in ruby programming language.
 require 'socket'
 
-server = TCPServer.open(2000)  # Opening the server socket
-puts "Listening on port 2000 ...."
+port = ARGV[0].to_i
+
+server = TCPServer.open(port)  # Opening the server socket
+puts "Listening on port #{port} ...."
 
 i = 0
 
