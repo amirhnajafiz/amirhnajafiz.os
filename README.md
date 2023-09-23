@@ -1,4 +1,4 @@
-# MyOS
+# amirhnajafiz OS
 
 ![](https://img.shields.io/badge/pl-shell-green)
 ![](https://img.shields.io/badge/content-os_configs-blue)
