@@ -40,8 +40,9 @@ to have on my operating system.
     6. kubectl
     7. kind
     8. openshift-cli
-    9. ansible
-    10. terraform
+    9. operator-sdk
+    10. ansible
+    11. terraform
 11. programming languages and managers
      1. gcc / g++
      2. python
