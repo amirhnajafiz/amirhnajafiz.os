@@ -24,6 +24,7 @@ def get_stats(base_path):
     total_pls = sum(pl_counts.values())
 
     print("Problem counts by level:")
+    print(f"  Total: {total_problems}")
     for level in levels:
         print(f"  {level.capitalize()}: {level_counts[level]}")
 
