@@ -23,21 +23,21 @@ def get_stats(base_path):
     total_problems = sum(level_counts.values())
     total_pls = sum(pl_counts.values())
 
-    print("Problem counts by level:")
-    print(f"  Total: {total_problems}")
+    print("### Problem counts by level:\n")
+    print(f"  - Total: {total_problems}")
     for level in levels:
-        print(f"  {level.capitalize()}: {level_counts[level]}")
+        print(f"  - {level.capitalize()}: {level_counts[level]}")
 
-    print("\nProgramming languages used (by percentage):")
+    print("\n###Programming languages used (by percentage):\n")
     for pl, count in pl_counts.items():
         percent = (count / total_pls) * 100 if total_pls else 0
-        print(f"  {pl}: {percent:.2f}%")
+        print(f"  - {pl}: {percent:.2f}%")
 
-    print("\nProgramming languages used per level:")
+    print("\n###Programming languages used per level:\n")
     for level in levels:
-        print(f"  {level.capitalize()}:")
+        print(f"  - {level.capitalize()}:")
         for pl, count in level_pls[level].items():
-            print(f"    {pl}: {count}")
+            print(f"    - {pl}: {count}")
 
 if __name__ == "__main__":
     get_stats(os.path.dirname(os.path.abspath(__file__)))
