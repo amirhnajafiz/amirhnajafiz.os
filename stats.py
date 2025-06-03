@@ -28,12 +28,12 @@ def get_stats(base_path):
     for level in levels:
         print(f"  - {level.capitalize()}: {level_counts[level]}")
 
-    print("\n###Programming languages used (by percentage):\n")
+    print("\n### Programming languages used (by percentage):\n")
     for pl, count in pl_counts.items():
         percent = (count / total_pls) * 100 if total_pls else 0
         print(f"  - {pl}: {percent:.2f}%")
 
-    print("\n###Programming languages used per level:\n")
+    print("\n### Programming languages used per level:\n")
     for level in levels:
         print(f"  - {level.capitalize()}:")
         for pl, count in level_pls[level].items():
