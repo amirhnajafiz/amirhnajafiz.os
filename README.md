@@ -6,23 +6,26 @@ A collection of my LeetCode solutions. This repository is organized by problem d
 
 ### Problem counts by level:
 
-  - Total: 11
-  - Easy: 4
-  - Medium: 5
-  - Hard: 2
+- Total: 18
+- Easy: 5
+- Medium: 9
+- Hard: 4
 
 ### Programming languages used (by percentage):
 
-  - c: 81.82%
-  - py: 18.18%
+- py: 33.33%
+- c: 55.56%
+- sql: 11.11%
 
 ### Programming languages used per level:
 
-  - Easy:
-    - c: 4
-  - Medium:
-    - c: 4
-    - py: 1
-  - Hard:
-    - c: 1
-    - py: 1
+- Easy:
+  - c: 4
+  - sql: 1
+- Medium:
+  - c: 4
+  - sql: 1
+  - py: 4
+- Hard:
+  - py: 2
+  - c: 2

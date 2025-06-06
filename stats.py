@@ -23,21 +23,38 @@ def get_stats(base_path):
     total_problems = sum(level_counts.values())
     total_pls = sum(pl_counts.values())
 
-    print("### Problem counts by level:\n")
-    print(f"  - Total: {total_problems}")
+    # Prepare stats as markdown
+    stats_md = []
+    stats_md.append("### Problem counts by level:\n")
+    stats_md.append(f"- Total: {total_problems}")
     for level in levels:
-        print(f"  - {level.capitalize()}: {level_counts[level]}")
+        stats_md.append(f"- {level.capitalize()}: {level_counts[level]}")
 
-    print("\n### Programming languages used (by percentage):\n")
+    stats_md.append("\n### Programming languages used (by percentage):\n")
     for pl, count in pl_counts.items():
         percent = (count / total_pls) * 100 if total_pls else 0
-        print(f"  - {pl}: {percent:.2f}%")
+        stats_md.append(f"- {pl}: {percent:.2f}%")
 
-    print("\n### Programming languages used per level:\n")
+    stats_md.append("\n### Programming languages used per level:\n")
     for level in levels:
-        print(f"  - {level.capitalize()}:")
+        stats_md.append(f"- {level.capitalize()}:")
         for pl, count in level_pls[level].items():
-            print(f"    - {pl}: {count}")
+            stats_md.append(f"  - {pl}: {count}")
+
+    stats_content = "\n".join(stats_md)
+
+    # Read README.md, append stats, and write back
+    readme_path = os.path.join(base_path, "README.md")
+    with open(readme_path, "r", encoding="utf-8") as f:
+        readme = f.read().rstrip()
+
+    new_readme = f"{readme}\n\n---\n\n{stats_content}\n"
+
+    with open(readme_path, "w", encoding="utf-8") as f:
+        f.write(new_readme)
+
+    # Also print to console as before
+    print(stats_content)
 
 if __name__ == "__main__":
     get_stats(os.path.dirname(os.path.abspath(__file__)))
