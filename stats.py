@@ -1,6 +1,13 @@
 import os
 from collections import Counter, defaultdict
 
+plmap = {
+    'c': 'C',
+    'py': 'Python',
+    'sql': 'SQL',
+    'rs': 'Rust',
+}
+
 def get_stats(base_path):
     levels = ['easy', 'medium', 'hard']
     level_counts = Counter()
@@ -33,13 +40,13 @@ def get_stats(base_path):
     stats_md.append("\n### Programming languages used (by percentage):\n")
     for pl, count in pl_counts.items():
         percent = (count / total_pls) * 100 if total_pls else 0
-        stats_md.append(f"- {pl}: {percent:.2f}%")
+        stats_md.append(f"- {plmap[pl]}: {percent:.2f}%")
 
     stats_md.append("\n### Programming languages used per level:\n")
     for level in levels:
         stats_md.append(f"- {level.capitalize()}:")
         for pl, count in level_pls[level].items():
-            stats_md.append(f"  - {pl}: {count}")
+            stats_md.append(f"  - {plmap[pl]}: {count}")
 
     stats_content = "\n".join(stats_md)
 
