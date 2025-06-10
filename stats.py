@@ -3,6 +3,7 @@ from collections import Counter, defaultdict
 
 plmap = {
     'c': 'C',
+    'cpp': 'C++',
     'py': 'Python',
     'sql': 'SQL',
     'rs': 'Rust',
