@@ -39,14 +39,16 @@ def get_stats(base_path):
         stats_md.append(f"- {level.capitalize()}: {level_counts[level]}")
 
     stats_md.append("\n### Programming languages used (by percentage):\n")
-    for pl, count in pl_counts.items():
+    # Sort pl_counts by count descending
+    for pl, count in sorted(pl_counts.items(), key=lambda x: x[1], reverse=True):
         percent = (count / total_pls) * 100 if total_pls else 0
         stats_md.append(f"- {plmap[pl]}: {percent:.2f}%")
 
     stats_md.append("\n### Programming languages used per level:\n")
     for level in levels:
         stats_md.append(f"- {level.capitalize()}:")
-        for pl, count in level_pls[level].items():
+        # Sort level_pls[level] by count descending
+        for pl, count in sorted(level_pls[level].items(), key=lambda x: x[1], reverse=True):
             stats_md.append(f"  - {plmap[pl]}: {count}")
 
     stats_content = "\n".join(stats_md)
