@@ -39,7 +39,6 @@ def get_stats(base_path):
         stats_md.append(f"- {level.capitalize()}: {level_counts[level]}")
 
     stats_md.append("\n### Programming languages used (by percentage):\n")
-    # Sort pl_counts by count descending
     for pl, count in sorted(pl_counts.items(), key=lambda x: x[1], reverse=True):
         percent = (count / total_pls) * 100 if total_pls else 0
         stats_md.append(f"- {plmap[pl]}: {percent:.2f}%")
@@ -47,23 +46,23 @@ def get_stats(base_path):
     stats_md.append("\n### Programming languages used per level:\n")
     for level in levels:
         stats_md.append(f"- {level.capitalize()}:")
-        # Sort level_pls[level] by count descending
         for pl, count in sorted(level_pls[level].items(), key=lambda x: x[1], reverse=True):
             stats_md.append(f"  - {plmap[pl]}: {count}")
 
     stats_content = "\n".join(stats_md)
 
-    # Read README.md, append stats, and write back
+    # New README header
+    readme_header = (
+        "# LeetCodz\n\n"
+        "A collection of my LeetCode solutions. This repository is organized by problem difficulty and tracks the number of problems solved at each level. Each solution is written with clarity and efficiency in mind, aiming to help others understand different approaches to common algorithmic challenges.\n\n"
+        "## Stats\n\n"
+    )
+
     readme_path = os.path.join(base_path, "README.md")
-    with open(readme_path, "r", encoding="utf-8") as f:
-        readme = f.read().rstrip()
-
-    new_readme = f"{readme}\n\n---\n\n{stats_content}\n"
-
+    # Overwrite README.md with new content
     with open(readme_path, "w", encoding="utf-8") as f:
-        f.write(new_readme)
+        f.write(f"{readme_header}{stats_content}\n")
 
-    # Also print to console as before
     print(stats_content)
 
 if __name__ == "__main__":
